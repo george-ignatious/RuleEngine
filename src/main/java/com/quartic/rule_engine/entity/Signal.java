@@ -35,4 +35,9 @@ public class Signal {
     public void setValueType(ValueType valueType) {
         this.valueType = valueType;
     }
+
+    @Override
+    public String toString(){
+        return signal + " " + value + " " +valueType;
+    }
 }

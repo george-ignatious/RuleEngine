@@ -17,7 +17,7 @@ public class NotFutureRule extends BaseRule{
     @Override
     protected boolean handle(Signal signal) {
         switch (signal.getValueType()){
-            case DateTime:
+            case Datetime:
                 try {
                     Date valueDate = new Date();
                     Date inputDate = new SimpleDateFormat(DATEFORMAT).parse(signal.getValue());

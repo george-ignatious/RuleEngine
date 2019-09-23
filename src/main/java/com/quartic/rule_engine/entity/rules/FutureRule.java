@@ -18,7 +18,7 @@ public class FutureRule extends BaseRule {
     protected boolean handle(Signal signal) {
         switch (signal.getValueType()) {
 
-            case DateTime:
+            case Datetime:
                 try {
                     Date valueDate = new Date();
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATEFORMAT);

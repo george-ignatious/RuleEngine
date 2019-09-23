@@ -27,7 +27,7 @@ public class EqualsRule extends BaseRule{
                 }
             case String:
                 return signal.getValue().equals(value);
-            case DateTime:
+            case Datetime:
                 try {
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATEFORMAT);
                     Date inputDate = simpleDateFormat.parse(signal.getValue());

@@ -27,7 +27,7 @@ public class NotEqualsRule extends BaseRule{
                 } catch (NumberFormatException n) {
                     return false;
                 }
-            case DateTime:
+            case Datetime:
                 try {
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATEFORMAT);
                     Date inputDate = simpleDateFormat.parse(signal.getValue());
