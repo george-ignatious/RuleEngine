@@ -1,3 +1,5 @@
+package com.quartic.rule_engine;
+
 import com.quartic.rule_engine.engine.RuleEngine;
 import com.quartic.rule_engine.engine.RuleEngineFactory;
 import com.quartic.rule_engine.engine.RuleEngineManager;
