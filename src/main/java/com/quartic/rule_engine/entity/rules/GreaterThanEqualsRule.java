@@ -19,7 +19,12 @@ public class GreaterThanEqualsRule extends BaseRule{
         switch (signal.getValueType()){
 
             case Integer:
-                return Integer.parseInt(signal.getValue().toString()) >= Integer.parseInt(value);
+                try {
+                    int valueInt = Integer.parseInt(value);
+                    return Integer.parseInt(signal.getValue()) >= valueInt;
+                } catch (NumberFormatException n) {
+                    return false;
+                }
             case DateTime:
                 try {
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATEFORMAT);

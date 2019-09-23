@@ -19,7 +19,12 @@ public class EqualsRule extends BaseRule{
         switch (signal.getValueType()){
 
             case Integer:
-                return Integer.parseInt(signal.getValue()) == Integer.parseInt(value);
+                try {
+                    int valueInt = Integer.parseInt(value);
+                    return Integer.parseInt(signal.getValue()) == valueInt;
+                } catch (NumberFormatException n) {
+                    return false;
+                }
             case String:
                 return signal.getValue().equals(value);
             case DateTime:

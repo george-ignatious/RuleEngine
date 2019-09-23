@@ -7,19 +7,24 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class GreaterThanRule extends BaseRule{
+public class GreaterThanRule extends BaseRule {
 
 
-    public GreaterThanRule(String signal,String value) {
+    public GreaterThanRule(String signal, String value) {
         super(signal, value);
     }
 
     @Override
     protected boolean handle(Signal signal) {
-        switch (signal.getValueType()){
+        switch (signal.getValueType()) {
 
             case Integer:
-                return Integer.parseInt(signal.getValue().toString()) > Integer.parseInt(value);
+                try {
+                    int valueInt = Integer.parseInt(value);
+                    return Integer.parseInt(signal.getValue()) > valueInt;
+                } catch (NumberFormatException n) {
+                    return false;
+                }
             case DateTime:
                 try {
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATEFORMAT);
@@ -32,6 +37,7 @@ public class GreaterThanRule extends BaseRule{
         }
         return false;
     }
+
     @Override
     public Operation getOperation() {
         return Operation.GREATERTHAN;

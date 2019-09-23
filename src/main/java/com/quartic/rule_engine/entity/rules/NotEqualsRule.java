@@ -21,7 +21,12 @@ public class NotEqualsRule extends BaseRule{
             case String:
                 return !signal.getValue().equals(value);
             case Integer:
-                return Integer.parseInt(signal.getValue()) != Integer.parseInt(value);
+                try {
+                    int valueInt = Integer.parseInt(value);
+                    return Integer.parseInt(signal.getValue()) != valueInt;
+                } catch (NumberFormatException n) {
+                    return false;
+                }
             case DateTime:
                 try {
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATEFORMAT);
